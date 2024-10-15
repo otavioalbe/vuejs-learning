@@ -4,13 +4,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprendendo VueJS</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .box{
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background-color: #ddd;
+            margin: 20px;
+            display: inline-block;
+        }
+    </style>
 </head>
     <body>
         
         <h1>Olá mundo!</h1>
+
         <div id="app">
             <div v-if="mostrarLivros">
-                <p>{{ titulo }} - {{ autor }} - {{ idade }}</p> <!-- Elemento é retirado do DOM (mais custoso) -->
+                <p>{{ titulo }} - {{ autor }} - {{ idade }}</p>
             </div>
 
             <button @click="toggleMostrarLivros">
@@ -18,7 +29,12 @@
                 <span v-else>Mostrar livros</span>
             </button>
 
-            <div v-show="mostrarLivros">Mostrando livros</div> <!-- Apenas CSS, elemento ainda existe (menos custoso)-->
+            <br>
+            <!-- mouse events -->
+            <div class="box" @mouseover="handleEvent($event, 5)">mouseover</div>
+            <div class="box" @mouseleave="handleEvent">mouseleave</div>
+            <div class="box" @dblclick="handleEvent">double click</div>
+            <div class="box" @mousemove="handleMousemove">Posição - {{ x }} - {{ y }}</div>
 
         </div>
 
