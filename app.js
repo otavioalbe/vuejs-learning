@@ -7,6 +7,11 @@ const app = Vue.createApp({
             autor: 'Brandon Sanderson',
             idade: 45
         }
+    },
+    methods: {
+        trocarTitulo(titulo) {
+            this.titulo = titulo;
+        }
     }
 });
 

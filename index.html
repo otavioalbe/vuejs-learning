@@ -10,6 +10,10 @@
         <h1>Olá mundo!</h1>
         <div id="app">
             <p>{{ titulo }} - {{ autor }} - {{ idade }}</p>
+
+            <button v-on:click="idade++">Aumentar idade</button>
+            <button v-on:click="idade--">Diminuir idade</button>
+            <div @click="trocarTitulo('Stalingrado')">Mudar de titulo</div>
         </div>
 
         <script src="app.js"></script>
