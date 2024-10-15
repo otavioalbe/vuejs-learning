@@ -9,11 +9,17 @@
         
         <h1>Olá mundo!</h1>
         <div id="app">
-            <p>{{ titulo }} - {{ autor }} - {{ idade }}</p>
+            <div v-if="mostrarLivros">
+                <p>{{ titulo }} - {{ autor }} - {{ idade }}</p> <!-- Elemento é retirado do DOM (mais custoso) -->
+            </div>
 
-            <button v-on:click="idade++">Aumentar idade</button>
-            <button v-on:click="idade--">Diminuir idade</button>
-            <div @click="trocarTitulo('Stalingrado')">Mudar de titulo</div>
+            <button @click="toggleMostrarLivros">
+                <span v-if="mostrarLivros">Tirar livros</span>
+                <span v-else>Mostrar livros</span>
+            </button>
+
+            <div v-show="mostrarLivros">Mostrando livros</div> <!-- Apenas CSS, elemento ainda existe (menos custoso)-->
+
         </div>
 
         <script src="app.js"></script>

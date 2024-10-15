@@ -3,14 +3,15 @@ const app = Vue.createApp({
     // template: '<h2>Isso é um template</h2>'
     data() {
         return {
+            mostrarLivros: true,
             titulo: 'The Final Empire',
             autor: 'Brandon Sanderson',
             idade: 45
         }
     },
     methods: {
-        trocarTitulo(titulo) {
-            this.titulo = titulo;
+        toggleMostrarLivros() {
+            this.mostrarLivros = !this.mostrarLivros
         }
     }
 });
