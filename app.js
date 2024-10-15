@@ -3,7 +3,9 @@ const app = Vue.createApp({
     // template: '<h2>Isso é um template</h2>'
     data() {
         return {
-            title: 'The Final Empire'
+            titulo: 'The Final Empire',
+            autor: 'Brandon Sanderson',
+            idade: 45
         }
     }
 });
