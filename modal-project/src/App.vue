@@ -1,15 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h1>{{ titulo }}</h1>
+  <input type="text" ref="nome">
+  <button @click="handleClique">clique aqui</button>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return{
+      titulo: 'Meu primeiro App Vue'
+    }
+  },
+  methods: {
+    handleClique(){
+      console.log(this.$refs.nome);
+      this.$refs.nome.classList.add('ativo');
+      this.$refs.nome.focus();
+    }
   }
 }
 </script>
@@ -22,5 +31,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+h1{
+  border-bottom: 1px solid #ddd;
+  display: inline-block;
+  padding-bottom: 10px;
 }
 </style>
