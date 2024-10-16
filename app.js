@@ -30,6 +30,9 @@ const app = Vue.createApp({
     methods: {
         toggleMostrarLivros() {
             this.mostrarLivros = !this.mostrarLivros;
+        },
+        toggleFav(livro) {
+            livro.isFavorito = !livro.isFavorito
         }
     }
 });

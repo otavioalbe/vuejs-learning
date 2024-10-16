@@ -15,6 +15,7 @@
             padding: 0;
         }
         li{
+            cursor: pointer;
             list-style-type: none;
             background: #fff;
             margin: 20px auto;
@@ -38,7 +39,7 @@
 
             <div v-if="mostrarLivros">
                 <ul>
-                    <li v-for="livro in livros" :class="{fav: livro.isFavorito}">
+                    <li v-for="livro in livros" :class="{fav: livro.isFavorito}" @click="toggleFav(livro)">
                         <img :src="livro.img" :alt="livro.titulo">
                         <h2>{{ livro.titulo }}</h2>
                         <p>{{ livro.autor }}</p>
