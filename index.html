@@ -21,20 +21,20 @@
 
         <div id="app">
             <div v-if="mostrarLivros">
-                <p>{{ titulo }} - {{ autor }} - {{ idade }}</p>
+                <div v-for="livro in livros">
+                    <ul>
+                        <li>
+                            <h2>{{ livro.titulo }}</h2>
+                            <p>{{ livro.autor }}</p>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <button @click="toggleMostrarLivros">
                 <span v-if="mostrarLivros">Tirar livros</span>
                 <span v-else>Mostrar livros</span>
             </button>
-
-            <br>
-            <!-- mouse events -->
-            <div class="box" @mouseover="handleEvent($event, 5)">mouseover</div>
-            <div class="box" @mouseleave="handleEvent">mouseleave</div>
-            <div class="box" @dblclick="handleEvent">double click</div>
-            <div class="box" @mousemove="handleMousemove">Posição - {{ x }} - {{ y }}</div>
 
         </div>
 
