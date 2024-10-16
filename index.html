@@ -39,7 +39,7 @@
 
             <div v-if="mostrarLivros">
                 <ul>
-                    <li v-for="livro in livros" :class="{fav: livro.isFavorito}" @click="toggleFav(livro)">
+                    <li v-for="livro in filtroLivros" :class="{fav: livro.isFavorito}" @click="toggleFav(livro)">
                         <img :src="livro.img" :alt="livro.titulo">
                         <h2>{{ livro.titulo }}</h2>
                         <p>{{ livro.autor }}</p>

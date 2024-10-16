@@ -34,6 +34,11 @@ const app = Vue.createApp({
         toggleFav(livro) {
             livro.isFavorito = !livro.isFavorito
         }
+    },
+    computed: {
+        filtroLivros(){
+            return this.livros.filter((livro) => livro.isFavorito)
+        }
     }
 });
 
