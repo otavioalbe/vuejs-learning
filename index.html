@@ -5,13 +5,28 @@
     <title>Aprendendo VueJS</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <style>
-        .box{
-            padding: 100px 0;
-            width: 400px;
-            text-align: center;
-            background-color: #ddd;
-            margin: 20px;
-            display: inline-block;
+        body{
+            background: #eee;
+            max-width:80%;
+            margin: 20px auto;
+        }
+        p, h3, ul{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style-type: none;
+            background: #fff;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        li.fav{
+            background-color: #ff9ed2;
+            color: white;
         }
     </style>
 </head>
@@ -23,7 +38,7 @@
 
             <div v-if="mostrarLivros">
                 <ul>
-                    <li v-for="livro in livros">
+                    <li v-for="livro in livros" :class="{fav: livro.isFavorito}">
                         <img :src="livro.img" :alt="livro.titulo">
                         <h2>{{ livro.titulo }}</h2>
                         <p>{{ livro.autor }}</p>
