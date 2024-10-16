@@ -9,17 +9,20 @@ const app = Vue.createApp({
                 {
                     titulo: 'Name of the Wind',
                     autor: 'Patrick Rothfuss',
-                    img: 'assets/1.jpg'
+                    img: 'assets/1.jpg',
+                    isFavorito: true
                 },
                 {
                     titulo: 'The Way of Kings',
                     autor: 'Brandon Sanderson',
-                    img: 'assets/2.jpg'
+                    img: 'assets/2.jpg',
+                    isFavorito: false
                 },
                 {
                     titulo: 'The Final Empire',
                     autor: 'Brandon Sanderson',
-                    img: 'assets/3.jpg'
+                    img: 'assets/3.jpg',
+                    isFavorito: true
                 }
             ]
         }

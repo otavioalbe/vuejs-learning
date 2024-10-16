@@ -21,19 +21,14 @@
 
         <div id="app">
 
-            <a v-bind:href="url">Google </a>
-            <a :href="url">Google</a> <!--   v-bind: == :  -->
-
             <div v-if="mostrarLivros">
-                <div v-for="livro in livros">
-                    <ul>
-                        <li>
-                            <img :src="livro.img" :alt="livro.titulo">
-                            <h2>{{ livro.titulo }}</h2>
-                            <p>{{ livro.autor }}</p>
-                        </li>
-                    </ul>
-                </div>
+                <ul>
+                    <li v-for="livro in livros">
+                        <img :src="livro.img" :alt="livro.titulo">
+                        <h2>{{ livro.titulo }}</h2>
+                        <p>{{ livro.autor }}</p>
+                    </li>
+                </ul>
             </div>
 
             <button @click="toggleMostrarLivros">
