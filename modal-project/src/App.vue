@@ -11,7 +11,15 @@
       <p>Tente a sorte por metade do preço!</p>
     </Modal>
   </div>
+
+  <div v-if="showModalTwo">
+    <Modal @close="toggleModalTwo">
+      <h2>Olá</h2>
+    </Modal>
+  </div>
   <button @click.shift="toggleModal">open modal (shift)</button>
+  <br><br>
+  <button @click="toggleModalTwo"> open modal 2</button>
 </template>
 
 <script>
@@ -27,7 +35,8 @@ export default {
       titulo: 'Meu primeiro App Vue',
       header: 'Inscreva-se para o sorteio',
       text: 'Tente a sorte!',
-      showModal: false
+      showModal: false,
+      showModalTwo: false
     }
   },
   methods: {
@@ -38,6 +47,9 @@ export default {
     },
     toggleModal(){
       this.showModal =!this.showModal
+    },
+    toggleModalTwo(){
+      this.showModalTwo = !this.showModalTwo
     }
   }
 }
