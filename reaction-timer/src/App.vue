@@ -2,11 +2,12 @@
   <h1>Teste de reação</h1>
   <button @click="start" :disabled="isPlaying">Jogar</button>
   <Block v-if="isPlaying" :delay="delay" @end="endGame"/>
-  <p v-if="showResults">Tempo de reação: {{ score }}ms</p>
+  <Results v-if="showResults" :score="score"/>
 </template>
 
 <script>
 import Block from './components/Block.vue'
+import Results from './components/Results.vue'
 
 export default {
   name: 'App',
@@ -18,7 +19,7 @@ export default {
       showResults: false
     }
   },
-  components: { Block },
+  components: { Block, Results},
   methods: {
     start(){
       this.delay = 2000 + Math.random() * 4000
