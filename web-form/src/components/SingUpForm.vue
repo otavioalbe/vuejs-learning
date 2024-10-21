@@ -12,30 +12,18 @@
         <option value="designer">Designer Web</option>
     </select>
 
+    <label for="">Habilidades:</label>
+    <input type="text" v-model="tempSkill" @keyup.ctrl="addSkill">
+    <div v-for="skill in skills" :key="skill" class="pill">
+        {{ skill }}
+    </div>
+
     <div class="terms">
         <input type="checkbox" required v-model="terms">
         <label>Aceitar termos e condições</label>
     </div>
-
-    <div>
-        <input type="checkbox" value="shaun" v-model="names">
-        <label>Shaun</label>
-    </div>
-    <div>
-        <input type="checkbox" value="yoshi" v-model="names">
-        <label>Yoshi</label>
-    </div>
-    <div>
-        <input type="checkbox" value="mario" v-model="names">
-        <label>Mario</label>
-    </div>
   </form>
-  
-  <p>{{ email }}</p>
-  <p>{{ password }}</p>
-  <p>{{ role }}</p>
-  <p>{{ terms }}</p>
-  <p>{{ names }}</p>
+  <p>{{ tempSkill }}</p>
 </template>
 
 <script>
@@ -46,7 +34,18 @@ export default {
             password: '',
             role: '',
             terms: false,
-            names: []
+            tempSkill: '',
+            skills: []
+        }
+    },
+    methods: {
+        addSkill(e){
+            if(e.key === ',' && this.tempSkill){
+                if(!this.skills.includes(this.tempSkill)){
+                    this.skills.push(this.tempSkill)
+                }
+                this.tempSkill = ''
+            }
         }
     }
 }
