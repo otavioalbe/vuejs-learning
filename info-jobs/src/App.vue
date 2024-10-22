@@ -1,7 +1,8 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link :to="{ name: 'About' }">About</router-link>
+    <router-link :to="{ name: 'About' }">About</router-link> |
+    <router-link :to="{ name: 'Jobs' }">Jobs</router-link>
   </nav>
   <router-view/>
 </template>
@@ -22,9 +23,14 @@ nav {
 nav a {
   font-weight: bold;
   color: #2c3e50;
+  margin: 0px 5px;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  background: crimson;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
 }
 </style>
