@@ -1,43 +1,23 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <input type="text" v-model="search">
-    <p>{{ search }}</p>
-    <div v-for="name in matchingNames" :key="name">
-        {{ name }}
-    </div>
-    <button @click="handleClick">stop watching</button>
+    <PostList :posts="posts"/>
   </div>
 </template>
 
 <script>
-import { ref, computed, watch, watchEffect } from 'vue'
+import PostList from '../components/PostList.vue'
+import { ref } from 'vue'
 
 export default {
   name: 'HomeView',
+  components: { PostList },
   setup(){
-    const names = ref(['mario','vans','yoshi','fabris','claat','bomba',])
-    const search = ref('')
-
-    const stopWatch = watch(search, () => {
-      console.log('watch function run')
-    })
-
-    const stopWatchEffect = watchEffect(() => {
-      console.log('watchEffect function run', search.value)
-    })
-
-    const matchingNames = computed(() => {
-      return names.value.filter((name) =>
-        name.includes(search.value))
-    })
-
-    const handleClick = () => {
-      stopWatch()
-      stopWatchEffect()
-    }
-
-    return { names, search, matchingNames, handleClick }
+    const posts = ref([
+      { title: 'welcome to the blog', body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet ligula non nisl sagittis vehicula ac vitae sapien. Pellentesque purus ante, interdum sed tincidunt sit amet, convallis non eros. Vestibulum lacinia erat eu est euismod dapibus. In eget ligula sit amet est consequat aliquet. Nunc dapibus pulvinar turpis, eu laoreet tellus laoreet non. Aliquam a elit nec ipsum euismod suscipit. Sed finibus accumsan tortor vel maximus. Mauris aliquet et eros vitae faucibus. Mauris scelerisque cursus quam eu elementum. Sed venenatis interdum faucibus. Nullam sodales nunc in libero pellentesque, sed condimentum mauris mollis. Aliquam tincidunt, metus ut elementum scelerisque, est magna varius mauris, ac feugiat tellus odio ut tellus.', id: 1 },
+      { title: 'top 5 CSS tips', body: 'Lorem ipsum', id: 2 },
+      ])
+      return { posts }
   }
 }
 </script>
